@@ -34,8 +34,8 @@ Output C: "olleH .repoleved oD uoy ekil yna fo eseht :stiurf ,elppa ,raep ?anana
 Perform the following on the result of step 2:
 
 1. **Reverse the casing**: uppercase → lowercase, lowercase → uppercase
-2. **Capitalize the first letter of each word**
-3. **Capitalize the first letter of each sentence**
+2. **Capitalize only the first letter of each word**
+3. **Capitalize only the first letter of each sentence**
    (Sentences end with `.`, `?`, or `!`)
 
 ### Examples:
@@ -50,12 +50,12 @@ Output:
 
 ```
 // Reverse casing:
-"OLLEh .REPOLEVEd Od UOY EKIL YNA FO ESEHT :STIURF ,ELPPA ,RAEP ?ANANAb I !OD"
+"OLLEh .REPOLEVED Od UOY EKIL YNA FO ESEHT :STIURF ,ELPPA ,RAEP ?ANANAB i !OD"
 
 // Capitalize each word:
-"Olleh .Repoleved Od Uoy Ekil Yna Fo Eseht :Stiurf ,Elppa ,Raep ?Ananab I !Od"
+"Olleh .repoleved Od Uoy Ekil Yna Fo Eseht :stiurf ,elppa ,raep ?ananab I !od"
 
 // Capitalize first letter of each sentence:
-"Olleh. Repoleved od uoy ekil yna fo eseht :stiurf ,elppa ,raep? Ananab i! Od"
+"Olleh .Repoleved od uoy ekil yna fo eseht :stiurf ,elppa ,raep ?Ananab i !Od"
 ```
 

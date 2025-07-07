@@ -36,52 +36,52 @@ public class ExerciseTests
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise1(s);
+		string result = c.Exercise2(s);
 
 		//assert
 		Assert.Equal(expected, result);
 	}
 
 	[Theory]
-	[InlineData("Hello developer. Do you like any of these fruits: apple, pear, banana? I do!", "OLLEH .REPOLEVED OD UOY EKIL YNA FO ESEHT :STIURF ,ELPPA ,RAEP ?ANANAB I !OD")]
-	[InlineData("Hello World!", "OLLEH !DLROW")]
+	[InlineData("Hello developer. Do you like any of these fruits: apple, pear, banana? I do!", "OLLEh .REPOLEVED Od UOY EKIL YNA FO ESEHT :STIURF ,ELPPA ,RAEP ?ANANAB i !OD")]
+	[InlineData("Hello World!", "OLLEh !DLROw")]
 	public void Opdracht3_1_WithText_ReturnsReversedCasing(string s, string expected)
 	{
 		//arrange
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise1(s);
+		string result = c.Exercise31(s);
 
 		//assert
 		Assert.Equal(expected, result);
 	}
 
 	[Theory]
-	[InlineData("Hello developer. Do you like any of these fruits: apple, pear, banana? I do!", "Olleh .Repoleved Od Uoy Ekil Yna Fo Eseht :Stiurf ,Elppa ,Raep ?Ananab I !Od")]
-	[InlineData("Hello World!", "Olleh !dlroW")]
+	[InlineData("Hello developer. Do you like any of these fruits: apple, pear, banana? I do!", "Olleh .repoleved Od Uoy Ekil Yna Fo Eseht :stiurf ,elppa ,raep ?ananab I !od")]
+	[InlineData("Hello World!", "Olleh !dlrow")]
 	public void Opdracht3_2_WithText_ReturnsReversedEachWordCapitalized(string s, string expected)
 	{
 		//arrange
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise1(s);
+		string result = c.Exercise32(s);
 
 		//assert
 		Assert.Equal(expected, result);
 	}
 
 	[Theory]
-	[InlineData("Hello developer. Do you like any of these fruits: apple, pear, banana? I do!", "Olleh. Repoleved od uoy ekil yna fo eseht :stiurf ,elppa ,raep? Ananab i! Od")]
-	[InlineData("Hello World!", "Olleh !dlrow")]
+	[InlineData("Hello developer. Do you like any of these fruits: apple, pear, banana? I do!", "Olleh .Repoleved od uoy ekil yna fo eseht :stiurf ,elppa ,raep ?Ananab i !Od")]
+	[InlineData("Hello World!", "Olleh !Dlrow")]
 	public void Opdracht3_3_WithText_ReturnsReversedEachFirstWordCapitalized(string s, string expected)
 	{
 		//arrange
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise1(s);
+		string result = c.Exercise33(s);
 
 		//assert
 		Assert.Equal(expected, result);
