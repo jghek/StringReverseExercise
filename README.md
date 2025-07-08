@@ -6,6 +6,11 @@ Given this string:
 "Hello developer. Do you like any of these fruits: apple, pear, banana? I do!"
 ```
 
+For this assignment, you will perform a series of transformations on the string. Things to keep in mind:
+- Punctuation should stay attached to the word.
+- A word is defined as a sequence of characters separated by spaces or one end begin on the start or end of the string.
+- A sentence is defined as a sequence of characters ending with `.`, `?`, or `!`. This character is included in the sentence.
+
 ## Step 1 – Reverse the order of words
 
 From string A, create string B by **reversing the order of words**.
