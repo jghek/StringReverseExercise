@@ -48,7 +48,7 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise31(string s)
     {
-        var array = s.ToCharArray();
+        var array = Exercise2(s).ToCharArray();
         var result = new StringBuilder(s.Length); ;
         foreach (var d in array)
         {
@@ -76,7 +76,7 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise32(string s)
     {
-        var array = s.ToCharArray();
+        var array = Exercise2(s).ToCharArray();
         var result = new StringBuilder(s.Length);
         var count = 1;
         foreach (var d in array)
@@ -113,7 +113,7 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise33(string s)
     {
-        var array = s.ToCharArray();
+        var array = Exercise2(s).ToCharArray();
         var result = new StringBuilder(s.Length);
         var count = 1;
         foreach (var d in array)
