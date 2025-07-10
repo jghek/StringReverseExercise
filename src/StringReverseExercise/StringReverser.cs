@@ -1,5 +1,6 @@
 ﻿
-
+using System;
+using System.Text;
 namespace StringReverseExercise;
 
 public class StringReverser
@@ -11,9 +12,8 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise1(string s)
     {
-        var arr = s.Split(' ');
-        var b = arr.Reverse();
-        var result = string.Join(' ', b);
+        var arr = s.Split(' ').Reverse();
+        var result = string.Join(' ', arr);
         return result;
     }
 
@@ -25,17 +25,20 @@ public class StringReverser
     public string Exercise2(string s)
     {
         var arr = s.Split(' ');
-        var result = "";
+        var result = new StringBuilder(s.Length);
+        var last = 1;
         foreach (var b in arr)
         {
-            result += string.Join("", b.ToCharArray().Reverse());
-            if (arr[arr.Count() - 1] != b)
+            result.Append(string.Join("", b.ToCharArray().Reverse()));
+
+            if (last != arr.Count())
             {
-                result += " ";
+                result.Append(" ");
+                last++;
             }
         }
 
-        return result;
+        return result.ToString();
     }
 
     /// <summary>
@@ -46,24 +49,24 @@ public class StringReverser
     public string Exercise31(string s)
     {
         var array = s.ToCharArray();
-        var result = "";
-        foreach (var d in array) 
+        var result = new StringBuilder(s.Length); ;
+        foreach (var d in array)
         {
             if (char.IsUpper(d))
-                {
-                    result += char.ToLower(d);
-                }
-                else if (char.IsLower(d))
-                {
-                    result += char.ToUpper(d);
-                }
-                else
-                {
-                    result += d;
-                }
+            {
+                result.Append(char.ToLower(d));
+            }
+            else if (char.IsLower(d))
+            {
+                result.Append(char.ToUpper(d));
+            }
+            else
+            {
+                result.Append(d);
+            }
         }
 
-        return result;
+        return result.ToString();
     }
 
     /// <summary>
@@ -74,34 +77,33 @@ public class StringReverser
     public string Exercise32(string s)
     {
         var array = s.ToCharArray();
-        var result = "";
+        var result = new StringBuilder(s.Length);
         var count = 1;
-        foreach (var d in array) 
+        foreach (var d in array)
         {
-            if (char.IsWhiteSpace(d) || d == ' ') 
+            if (char.IsWhiteSpace(d) || d == ' ')
             {
-                result += d;
+                result.Append(d);
                 count = 1;
             }
             else if (count != 1)
             {
-                result += char.ToLower(d);
+                result.Append(char.ToLower(d));
                 count++;
             }
             else if (count == 1)
             {
-                result += char.ToUpper(d);
+                result.Append(char.ToUpper(d));
                 count++;
             }
-            else 
+            else
             {
-                result += d;
+                result.Append(d);
                 count++;
-
             }
         }
 
-        return result;
+        return result.ToString();
     }
 
     /// <summary>
@@ -112,34 +114,34 @@ public class StringReverser
     public string Exercise33(string s)
     {
         var array = s.ToCharArray();
-        var result = "";
+        var result = new StringBuilder(s.Length);
         var count = 1;
         foreach (var d in array)
         {
-            if (d =='?' || d == '.' || d == '!')
+            if (d == '?' || d == '.' || d == '!')
             {
-                result += d;
+                result.Append(d);
                 count = 1;
             }
             else if (count != 1)
             {
-                result += char.ToLower(d);
+                result.Append(char.ToLower(d));
                 count++;
             }
             else if (count == 1)
             {
-                result += char.ToUpper(d);
+                result.Append(char.ToUpper(d));
                 count++;
             }
             else
             {
-                result += d;
+                result.Append(d);
                 count++;
 
             }
         }
 
-        return result;
+        return result.ToString();
     }
 
 
