@@ -54,7 +54,7 @@ public class ExerciseTests
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise31(s);
+		string result = c.Exercise31(c.Exercise2(s));
 
 		//assert
 		Assert.Equal(expected, result);
@@ -70,7 +70,7 @@ public class ExerciseTests
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise32(s);
+		string result = c.Exercise32(c.Exercise2(s));
 
 		//assert
 		Assert.Equal(expected, result);
@@ -86,7 +86,7 @@ public class ExerciseTests
 		var c = new StringReverser();
 
 		//act
-		string result = c.Exercise33(s);
+		string result = c.Exercise33(c.Exercise2(s));
 
 		//assert
 		Assert.Equal(expected, result);

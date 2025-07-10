@@ -1,54 +1,146 @@
-﻿namespace StringReverseExercise;
+﻿
+
+namespace StringReverseExercise;
 
 public class StringReverser
 {
-	/// <summary>
-	/// From string A, create string B by reversing the order of words. Punctuation should stay attached to the word.
-	/// </summary>
-	/// <param name="s">the input</param>
-	/// <returns>the modified string</returns>
-	public string Exercise1(string s)
-	{
-		return string.Empty;
-	}
+    /// <summary>
+    /// From string A, create string B by reversing the order of words. Punctuation should stay attached to the word.
+    /// </summary>
+    /// <param name="s">the input</param>
+    /// <returns>the modified string</returns>
+    public string Exercise1(string s)
+    {
+        var arr = s.Split(' ');
+        var b = arr.Reverse();
+        var result = string.Join(' ', b);
+        return result;
+    }
 
-	/// <summary>
-	/// Create a string from string A by reversing the characters in each word, keeping the word order intact.
-	/// </summary>
-	/// <param name="s">the input</param>
-	/// <returns>the modified string</returns>
-	public string Exercise2(string s)
-	{
-		return string.Empty;
-	}
+    /// <summary>
+    /// Create a string from string A by reversing the characters in each word, keeping the word order intact.
+    /// </summary>
+    /// <param name="s">the input</param>
+    /// <returns>the modified string</returns>
+    public string Exercise2(string s)
+    {
+        var arr = s.Split(' ');
+        var result = "";
+        foreach (var b in arr)
+        {
+            result += string.Join("", b.ToCharArray().Reverse());
+            if (arr[arr.Count() - 1] != b)
+            {
+                result += " ";
+            }
+        }
 
-	/// <summary>
-	/// Apply text transformations on step 2 and Reverse the casing: uppercase → lowercase, lowercase → uppercase
-	/// </summary>
-	/// <param name="s">the input</param>
-	/// <returns>the modified string</returns>
-	public string Exercise31(string s)
-	{
-		return string.Empty;
-	}
+        return result;
+    }
 
-	/// <summary>
-	/// Apply text transformations on step 2 and Capitalize the first letter of each word
-	/// </summary>
-	/// <param name="s">the input</param>
-	/// <returns>the modified string</returns>
-	public string Exercise32(string s)
-	{
-		return string.Empty;
-	}
+    /// <summary>
+    /// Apply text transformations on step 2 and Reverse the casing: uppercase → lowercase, lowercase → uppercase
+    /// </summary>
+    /// <param name="s">the input</param>
+    /// <returns>the modified string</returns>
+    public string Exercise31(string s)
+    {
+        var array = s.ToCharArray();
+        var result = "";
+        foreach (var d in array) 
+        {
+            if (char.IsUpper(d))
+                {
+                    result += char.ToLower(d);
+                }
+                else if (char.IsLower(d))
+                {
+                    result += char.ToUpper(d);
+                }
+                else
+                {
+                    result += d;
+                }
+        }
 
-	/// <summary>
-	/// Apply text transformations on step 2 and Capitalize the first letter of each sentence (Sentences end with ., ?, or !)
-	/// </summary>
-	/// <param name="s">the input</param>
-	/// <returns>the modified string</returns>
-	public string Exercise33(string s)
-	{
-		return string.Empty;
-	}
+        return result;
+    }
+
+    /// <summary>
+    /// Apply text transformations on step 2 and Capitalize the first letter of each word
+    /// </summary>
+    /// <param name="s">the input</param>
+    /// <returns>the modified string</returns>
+    public string Exercise32(string s)
+    {
+        var array = s.ToCharArray();
+        var result = "";
+        var count = 1;
+        foreach (var d in array) 
+        {
+            if (char.IsWhiteSpace(d) || d == ' ') 
+            {
+                result += d;
+                count = 1;
+            }
+            else if (count != 1)
+            {
+                result += char.ToLower(d);
+                count++;
+            }
+            else if (count == 1)
+            {
+                result += char.ToUpper(d);
+                count++;
+            }
+            else 
+            {
+                result += d;
+                count++;
+
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Apply text transformations on step 2 and Capitalize the first letter of each sentence (Sentences end with ., ?, or !)
+    /// </summary>
+    /// <param name="s">the input</param>
+    /// <returns>the modified string</returns>
+    public string Exercise33(string s)
+    {
+        var array = s.ToCharArray();
+        var result = "";
+        var count = 1;
+        foreach (var d in array)
+        {
+            if (d =='?' || d == '.' || d == '!')
+            {
+                result += d;
+                count = 1;
+            }
+            else if (count != 1)
+            {
+                result += char.ToLower(d);
+                count++;
+            }
+            else if (count == 1)
+            {
+                result += char.ToUpper(d);
+                count++;
+            }
+            else
+            {
+                result += d;
+                count++;
+
+            }
+        }
+
+        return result;
+    }
+
+
 }
