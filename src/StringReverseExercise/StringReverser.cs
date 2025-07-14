@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Linq;
 using System.Text;
 namespace StringReverseExercise;
 
@@ -24,21 +25,11 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise2(string s)
     {
-        var arr = s.Split(' ');
-        var result = new StringBuilder(s.Length);
-        var last = 1;
-        foreach (var b in arr)
-        {
-            result.Append(string.Join("", b.ToCharArray().Reverse()));
+        var result = string.Join(' ', s.Split(' ').Select(s =>
+        new String(s.ToCharArray().Reverse().ToArray())
+        ));
 
-            if (last != arr.Count())
-            {
-                result.Append(" ");
-                last++;
-            }
-        }
-
-        return result.ToString();
+        return result;
     }
 
     /// <summary>
@@ -48,23 +39,8 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise31(string s)
     {
-        var array = Exercise2(s).ToCharArray();
-        var result = new StringBuilder(s.Length); ;
-        foreach (var d in array)
-        {
-            if (char.IsUpper(d))
-            {
-                result.Append(char.ToLower(d));
-            }
-            else if (char.IsLower(d))
-            {
-                result.Append(char.ToUpper(d));
-            }
-            else
-            {
-                result.Append(d);
-            }
-        }
+        var result = string.Join(' ', Exercise2(s).Split(' ').Select(s => new String(s.ToCharArray().Select(s2 =>
+        char.IsUpper(s2) ? char.ToLower(s2) : char.IsLower(s2) ? char.ToUpper(s2) : s2).ToArray())));
 
         return result.ToString();
     }
@@ -76,6 +52,11 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise32(string s)
     {
+        //var count = 1;
+        //var result = string.Join(' ', Exercise2(s).Split(' ').Select(s => new String(s.ToCharArray().Select(s2 => 
+        //s2 == 
+        //).ToArray() )));
+
         var array = Exercise2(s).ToCharArray();
         var result = new StringBuilder(s.Length);
         var count = 1;
