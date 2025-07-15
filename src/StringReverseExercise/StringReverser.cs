@@ -41,7 +41,7 @@ public class StringReverser
         var result = string.Join(' ', Exercise2(s).Split(' ').Select(s => new String(s.ToCharArray().Select(s2 =>
         char.IsUpper(s2) ? char.ToLower(s2) : char.IsLower(s2) ? char.ToUpper(s2) : s2).ToArray())));
 
-        return result.ToString();
+        return result;
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ public class StringReverser
     {
         var result = string.Join(' ', Exercise2(s).Split(' ').Select(s => s.Substring(0, 1).ToUpper() + s.Substring(1, s.Length-1).ToLower()));
 
-        return result.ToString();
+        return result;
     }
 
     /// <summary>
@@ -63,48 +63,16 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise33(string s)
     {
-        var result = string.Join(' ', Exercise2(s).Split(' ').Select(s =>
-        //s == "." ? s : s
-        //new String(s.ToCharArray().Select( s =>  ))
-        s.Substring(0, 1) == "." ? s.Substring(0, 1) + s.Substring(1, 1).ToUpper() + s.Substring(2, s.Length - 2).ToLower() : 
-        s.Substring(0, 1) == "?" ? s.Substring(0, 1) + s.Substring(1, 1).ToUpper() + s.Substring(2, s.Length - 2).ToLower() :
-        s.Substring(0, 1) == "!" ? s.Substring(0, 1) + s.Substring(1, 1).ToUpper() + s.Substring(2, s.Length - 2).ToLower() : s.ToLower()
-
-
-
-
-
+        var arr = Exercise2(s).Split(' ');
+        var result = string.Join(' ', arr.Select(x =>
+        Array.IndexOf(arr, x) == 0 ? x.Substring(0, 1).ToUpper() + x.Substring(1, x.Length - 1).ToLower() :
+        x.Substring(0, 1) == "." ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
+        x.Substring(0, 1) == "?" ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
+        x.Substring(0, 1) == "!" ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() : 
+        x.ToLower()
         ));
 
-        //var array = Exercise2(s).ToCharArray();
-        //var result = new StringBuilder(s.Length);
-        //var count = 1;
-        //foreach (var d in array)
-        //{
-        //    if (d == '?' || d == '.' || d == '!')
-        //    {
-        //        result.Append(d);
-        //        count = 1;
-        //    }
-        //    else if (count != 1)
-        //    {
-        //        result.Append(char.ToLower(d));
-        //        count++;
-        //    }
-        //    else if (count == 1)
-        //    {
-        //        result.Append(char.ToUpper(d));
-        //        count++;
-        //    }
-        //    else
-        //    {
-        //        result.Append(d);
-        //        count++;
-
-        //    }
-        //}
-
-        return result.ToString();
+        return result;
     }
 
 
