@@ -38,8 +38,11 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise31(string s)
     {
-        var result = string.Join(' ', Exercise2(s).Split(' ').Select(s => new String(s.ToCharArray().Select(s2 =>
-        char.IsUpper(s2) ? char.ToLower(s2) : char.IsLower(s2) ? char.ToUpper(s2) : s2).ToArray())));
+        var result = string.Join(' ', Exercise2(s).Split(' ').Select(s =>
+        new String(s.ToCharArray().Select(s2 =>
+        char.IsUpper(s2) ? char.ToLower(s2) :
+        char.IsLower(s2) ? char.ToUpper(s2) :
+        s2).ToArray())));
 
         return result;
     }
@@ -51,7 +54,8 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise32(string s)
     {
-        var result = string.Join(' ', Exercise2(s).Split(' ').Select(s => s.Substring(0, 1).ToUpper() + s.Substring(1, s.Length-1).ToLower()));
+        var result = string.Join(' ', Exercise2(s).Split(' ').Select(s =>
+        s.Substring(0, 1).ToUpper() + s.Substring(1, s.Length - 1).ToLower()));
 
         return result;
     }
@@ -63,14 +67,24 @@ public class StringReverser
     /// <returns>the modified string</returns>
     public string Exercise33(string s)
     {
-        var arr = Exercise2(s).Split(' ');
-        var result = string.Join(' ', arr.Select(x =>
-        Array.IndexOf(arr, x) == 0 ? x.Substring(0, 1).ToUpper() + x.Substring(1, x.Length - 1).ToLower() :
-        x.Substring(0, 1) == "." ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
-        x.Substring(0, 1) == "?" ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
-        x.Substring(0, 1) == "!" ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() : 
-        x.ToLower()
-        ));
+        // per zin (op . en ! en ? verdelen)
+
+        var result = string.Join('.', 
+            Exercise2(s).Split('.').Select(x => string.Join('?', 
+       new String(x.Substring(0, 1).ToUpper() + x.Substring(1, x.Length-1).ToLower()).Split('?')
+       .Select(x2 => string.Join('!', 
+       new String(x2.Substring(0, 1).ToUpper() + x2.Substring(1, x2.Length - 1)).Split('!')
+       .Select(x3 => x3.Substring(0, 1).ToUpper() + x3.Substring(1, x3.Length - 1)
+       ))))));
+
+        //var arr = Exercise2(s).Split(' ');
+        //var result = string.Join(' ', arr.Select(x =>
+        //Array.IndexOf(arr, x) == 0 ? x.Substring(0, 1).ToUpper() + x.Substring(1, x.Length - 1).ToLower() :
+        //x.Substring(0, 1) == "." ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
+        //x.Substring(0, 1) == "?" ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
+        //x.Substring(0, 1) == "!" ? x.Substring(0, 1) + x.Substring(1, 1).ToUpper() + x.Substring(2, x.Length - 2).ToLower() :
+        //x.ToLower()
+        //));
 
         return result;
     }
